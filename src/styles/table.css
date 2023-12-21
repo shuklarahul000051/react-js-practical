@@ -1,0 +1,19 @@
+.weekday-row{
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.weekday-head {
+    color: #555555;
+    background-color: #d2ffff;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weekday-body {
+    flex-grow: 1;
+    background-color: #fcf8e0;
+}
