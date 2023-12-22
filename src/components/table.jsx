@@ -2,11 +2,16 @@ import Weekday from './weekday';
 import "../styles/table.css";
 
 export default function Table() {
+    const dayName = ["Mon", "Tue", "Wed", "Thu", "Fri"];
     return (
         <>
             <div style={{ border: "2px solid black", padding: 5, marginBottom: "5px" }}>
-                <Weekday />
-            </div>            
+                {dayName?.map((val, index) => {
+                    return (
+                        <Weekday dayName={val} key={index} />
+                    )
+                })}
+            </div>
         </>
     )
 }

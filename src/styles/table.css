@@ -6,14 +6,34 @@
 .weekday-head {
     color: #555555;
     background-color: #d2ffff;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .weekday-body {
-    flex-grow: 1;
+    /* flex-grow: 1; */
     background-color: #fcf8e0;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.weekday-body label{
+    display: inline-flex;
+    align-items: center;
+    font-size: 18px;
+    color: #666666;
+    font-weight: bolder;
+    margin-left: 20px;
+}
+
+.weekday-body label input{
+    padding: 10px;
+    color: red;
+    background-color: green;
+    height: 20px;
+    width: 20px;
 }

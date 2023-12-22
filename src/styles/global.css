@@ -5,7 +5,39 @@
 }
 
 .container {
-    border: 2px solid black;
+    border: 1px solid rgb(88, 86, 86);
     margin: 5px;
     padding: 5px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.p-10 {
+    padding: 10px;
+}
+
+.p-5 {
+    padding: 5px;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.font-size-20 {
+    font-size: 20px;
+}
+
+.text-grey {
+    color: grey;
+}
+
+.mb-5 {
+    margin-bottom: 5px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
 }
