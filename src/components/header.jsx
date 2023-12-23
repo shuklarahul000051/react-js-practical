@@ -3,7 +3,7 @@ import moment from 'moment-timezone';
 
 export default function Header({ updateCurrWeek, timezone }) {
     const momentDate = moment.tz(timezone);
-    const day = momentDate.format('MMMM DD YYYY');
+    const day = momentDate.format('DD MMMM YYYY');
     return (
         <>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }} className="mb-10">

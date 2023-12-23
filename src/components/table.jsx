@@ -6,26 +6,18 @@ import moment from 'moment-timezone';
 export default function Table({ timezone, currWeek }) {
     const dayName = ["Mon", "Tue", "Wed", "Thu", "Fri"];
 
-    // Use reduce to group objects by date
     const groupedByDate = jsonData.reduce((result, obj) => {
-        // Extract the date and time from the object
+
         const dateTime = `${obj.Date} ${obj.Time}`;
-
-        // Create a moment object in UTC
         const momentUtc = moment.utc(dateTime, 'YYYY-MM-DD HH:mm');
-
-        // Convert to the target timezone
         const momentTargetTimezone = momentUtc.tz(timezone);
-
-        // Format the date in the target timezone
         const formattedDate = momentTargetTimezone.format('YYYY-MM-DD');
 
-        // If the date is not in the result, add it as a key with an array
+        
         if (!result[formattedDate]) {
             result[formattedDate] = [];
         }
 
-        // Push the object with converted date and time to the array associated with the date
         result[formattedDate].push({
             ...obj,
             Date: momentTargetTimezone.format('YYYY-MM-DD'),
@@ -38,7 +30,7 @@ export default function Table({ timezone, currWeek }) {
 
     return (
         <>
-            <div style={{ border: "2px solid black", padding: 5, marginBottom: "5px" }}>
+            <div style={{ padding: 5, marginBottom: "5px" }}>
                 {dayName?.map((val, index) => {
                     const currentDate = moment.tz(timezone).day(val).add(currWeek, 'weeks')
                     const dateKey = currentDate.format('YYYY-MM-DD');
