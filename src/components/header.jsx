@@ -1,22 +1,14 @@
 // import style from './styles/global.css'
+import moment from 'moment-timezone';
 
-export default function Header({updateCurrWeek}) {
-    const months = [
-        'January', 'February', 'March', 'April',
-        'May', 'June', 'July', 'August',
-        'September', 'October', 'November', 'December'
-      ];
-      
-    const date = new Date();
-    const year = date.getFullYear();
-    const monthIndex = date.getMonth();
-    const monthName = months[monthIndex]; 
-    const day = date.getDate();
+export default function Header({ updateCurrWeek, timezone }) {
+    const momentDate = moment.tz(timezone);
+    const day = momentDate.format('MMMM DD YYYY');
     return (
         <>
-            <div style={{display: "flex", justifyContent: "space-between", alignItems: "center" }} className="mb-10">
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }} className="mb-10">
                 <button className="p-5" onClick={() => updateCurrWeek(-1)}>Previous Week</button>
-                <div className="font-bold font-size-20">{monthName} {day} {year}</div>
+                <div className="font-bold font-size-20">{day}</div>
                 <button className="p-5" onClick={() => updateCurrWeek(1)}>Next Week</button>
             </div>
         </>

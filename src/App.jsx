@@ -5,34 +5,25 @@ import { useState } from 'react';
 import moment from 'moment-timezone';
 
 function App() {
-  const [currWeek, setCurrWeek] = useState(0);  
-  const [timezone, setTimezone] = useState('UTC');
+	const [currWeek, setCurrWeek] = useState(0);
+	const [timezone, setTimezone] = useState('UTC');
 
-  const handleTimezoneChange = (selectedTimezone) => {
-    // Convert the current date to the new timezone
-    const convertedDate = moment()
-      .tz(selectedTimezone)
-      .format('YYYY-MM-DD HH:mm:ss');
+	const handleTimezoneChange = (selectedTimezone) => {
+		// Update setTimezone accordingly
+		setTimezone(selectedTimezone);
+	};
 
-    // Implement logic to update displayed times based on the selected timezone
-    // For simplicity, let's just log the converted date
-    console.log(`Converted Date: ${convertedDate}`);
+	const updateCurrWeek = (week) => {
+		setCurrWeek(prev => prev + week);
+	}
 
-    // Update setTimezone accordingly
-    setTimezone(selectedTimezone);
-  };
-
-  const updateCurrWeek = (week) => {
-    setCurrWeek(prev => prev + week);
-  }
-
-    return (
-        <div className='container'>
-            <Header updateCurrWeek={updateCurrWeek}/>
-            <Timezone handleTimezoneChange={handleTimezoneChange} timezone={timezone}/>
-            <Table timezone={timezone} currWeek={currWeek}/>
-        </div>
-    )
+	return (
+		<div className='container'>
+			<Header updateCurrWeek={updateCurrWeek} timezone={timezone} />
+			<Timezone handleTimezoneChange={handleTimezoneChange} timezone={timezone} />
+			<Table timezone={timezone} currWeek={currWeek} />
+		</div>
+	)
 }
 
 export default App
